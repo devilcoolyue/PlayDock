@@ -1,0 +1,53 @@
+{
+  "schemaVersion": "0.1-draft",
+  "slug": "dock-runner",
+  "title": "Dock Runner",
+  "description": "Illustrative manifest for a small browser game; game source is not included.",
+  "runtime": "static-web",
+  "build": {
+    "packageManager": "npm",
+    "lockfile": "package-lock.json",
+    "command": "npm run build",
+    "outputDirectory": "dist",
+    "entry": "index.html"
+  },
+  "release": {
+    "visibility": "private",
+    "monetization": "free"
+  },
+  "requestedLimits": {
+    "buildCpuCores": 1,
+    "buildMemoryMiB": 1024,
+    "buildTimeoutSeconds": 300,
+    "artifactSizeMiB": 50,
+    "smokeTimeoutSeconds": 240
+  },
+  "permissions": {
+    "runtimeNetwork": [],
+    "camera": false,
+    "microphone": false,
+    "geolocation": false
+  },
+  "provenance": {
+    "aiAssisted": true,
+    "tools": ["Devin Bots (planned for this example)"],
+    "codeLicense": "UNLICENSED",
+    "assets": []
+  },
+  "smokeScenario": {
+    "format": "declarative-v0-draft",
+    "steps": [
+      { "action": "waitFor", "selector": "[data-testid='start']" },
+      { "action": "click", "selector": "[data-testid='start']" },
+      { "action": "expectVisible", "selector": "[data-testid='game']" },
+      {
+        "action": "repeatInput",
+        "key": "ArrowRight",
+        "durationSeconds": 180,
+        "intervalMilliseconds": 1000
+      },
+      { "action": "click", "selector": "[data-testid='restart']" },
+      { "action": "expectVisible", "selector": "[data-testid='game']" }
+    ]
+  }
+}

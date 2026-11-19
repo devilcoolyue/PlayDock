@@ -1,0 +1,28 @@
+# Local configuration and secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+
+# Dependencies and build output
+node_modules/
+.next/
+dist/
+build/
+coverage/
+*.tsbuildinfo
+
+# Test evidence and untrusted local submissions
+playwright-report/
+test-results/
+.playdock/
+uploads/
+artifacts/
+
+# Editor, OS, and logs
+.DS_Store
+.idea/
+.vscode/
+*.log
